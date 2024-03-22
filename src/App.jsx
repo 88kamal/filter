@@ -41,7 +41,9 @@ const App = () => {
     await fetch('https://dummyjson.com/products/categories')
     .then(res => res.json())
     .then(data => {
+        console.log(data)
         const arr = data.slice(0, 6);
+        console.log(data.slice(0, 6))
         setCategories(arr);
     })
     .catch(err => alert(err))
@@ -78,6 +80,7 @@ const App = () => {
                 {
                     categories.map((category) => (
                         <div
+                    //    h1
                             onClick={() => {
                                 if(selectedCategories.includes(category)){
                                     removeCategory(category);
@@ -87,6 +90,7 @@ const App = () => {
                             }} 
                             className={`w-fit min-w-fit h-8 mx-2 px-5 py-2 flex flex-row justify-center items-center text-sm border break-keep rounded-3xl cursor-pointer transition-all duration-300 ${(selectedCategories.includes(category))?'border-blue-500 bg-blue-500 text-white':' border-gray-500 bg-white text-gray-900'} `}>
                             {category.split("-").join(" ")}
+                            <h1>{console.log(category)}</h1>
                         </div>
                     ))
                 }
